@@ -48,10 +48,10 @@ export default function Hero({ onOpenContact }: HeroProps) {
                 <div className="space-y-2">
                   <p className="text-white/90 text-lg md:text-2xl font-normal leading-tight italic">
                     Інтелект не рятує. <br />
-                    І контроль більше не дає результату.
+                    Контроль більше не дає результату.
                   </p>
                   <p className="text-white text-xl md:text-3xl font-medium tracking-tight">
-                    З цього ми і починаємо роботу.
+                    З цього ми й починаємо роботу.
                   </p>
                 </div>
 
@@ -67,10 +67,10 @@ export default function Hero({ onOpenContact }: HeroProps) {
                   className="flex flex-col sm:flex-row items-center sm:items-start gap-4 md:gap-5 w-full"
                 >
                   <button 
-                    onClick={onOpenContact}
+                    onClick={() => onOpenContact('all')}
                     className="btn-pill !bg-brand-green !text-white group w-full sm:w-auto min-w-[280px] flex justify-between items-center py-4 px-8 border-none shadow-xl shadow-black/20"
                   >
-                     <span className="text-[13px] uppercase tracking-wider font-bold">Обговорити свій запит</span>
+                     <span className="text-[13px] uppercase tracking-wider font-bold">ОБГОВОРИТИ СВІЙ ЗАПИТ</span>
                      <div className="ml-4 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-brand-green transition-all shrink-0">
                         <ArrowUpRight className="w-5 h-5" />
                      </div>

@@ -10,8 +10,16 @@ import ContactModal from './components/ContactModal';
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState<'all' | 'email' | 'messenger'>('all');
 
-  const openModal = () => setIsModalOpen(true);
+  const openModal = (mode: any = 'all') => {
+    if (mode === 'email' || mode === 'messenger') {
+      setModalMode(mode);
+    } else {
+      setModalMode('all');
+    }
+    setIsModalOpen(true);
+  };
   const closeModal = () => setIsModalOpen(false);
 
   return (
@@ -24,7 +32,7 @@ export default function App() {
       <Details />
       <Footer onOpenContact={openModal} />
       
-      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
+      <ContactModal isOpen={isModalOpen} onClose={closeModal} mode={modalMode} />
     </div>
   );
 }

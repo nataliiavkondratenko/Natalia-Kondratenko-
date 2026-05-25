@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { Instagram, Mail, Phone, ArrowUpRight, Calendar } from 'lucide-react';
 
 interface FooterProps {
-  onOpenContact: () => void;
+  onOpenContact: (mode?: 'all' | 'email' | 'messenger') => void;
 }
 
 export default function Footer({ onOpenContact }: FooterProps) {
@@ -20,8 +20,8 @@ export default function Footer({ onOpenContact }: FooterProps) {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              onClick={onOpenContact}
-              className="lg:col-span-2 relative h-[400px] md:h-[500px] rounded-[30px] md:rounded-[40px] overflow-hidden group shadow-sm cursor-pointer"
+              onClick={() => onOpenContact('all')}
+              className="lg:col-span-2 relative h-[450px] md:h-[520px] rounded-[30px] md:rounded-[40px] overflow-hidden group shadow-sm cursor-pointer"
             >
               <img 
                 src={sideImageUrl} 
@@ -43,59 +43,58 @@ export default function Footer({ onOpenContact }: FooterProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              onClick={onOpenContact}
-              className="bg-card-blue p-8 md:p-12 rounded-[30px] md:rounded-[40px] flex flex-col justify-between h-[450px] md:h-[550px] group cursor-pointer"
+              onClick={() => onOpenContact('email')}
+              className="bg-card-blue p-8 md:p-12 rounded-[30px] md:rounded-[40px] flex flex-col justify-between h-[450px] md:h-[520px] group cursor-pointer shadow-sm border border-black/[0.02]"
             >
               <div>
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md mb-8">
                   <Mail className="w-5 h-5 text-[#3E5C7A]" />
                 </div>
-                <h3 className="text-xl sm:text-2xl md:text-4xl font-sans font-medium text-brand-ink mb-4 md:mb-6 leading-tight">
-                  Обговорити <br /> свій запит
+                <h3 className="text-xl sm:text-2xl md:text-[1.35rem] lg:text-[1.45rem] xl:text-[1.65rem] font-sans font-medium text-brand-ink mb-4 md:mb-6 leading-tight min-h-[56px] md:min-h-[80px] flex items-end">
+                  <span>Обговорити <br className="hidden md:block" /> свій запит</span>
                 </h3>
-                <p className="text-brand-muted text-sm md:text-lg leading-relaxed max-w-[240px]">
+                <p className="text-brand-muted text-sm md:text-base leading-relaxed max-w-[280px]">
                   Залишіть заявку, щоб ми могли підібрати зручний час для знайомства.
                 </p>
               </div>
               
               <button 
-                onClick={onOpenContact}
-                className="bg-brand-ink text-white w-full py-4 rounded-full text-sm font-medium flex items-center justify-center group-hover:bg-gray-900 transition-colors mt-auto"
+                onClick={(e) => { e.stopPropagation(); onOpenContact('email'); }}
+                className="bg-brand-ink text-white w-full py-4 rounded-full text-sm font-medium flex items-center justify-center hover:bg-black transition-colors mt-auto"
               >
-                 Залишити заявку
+                 Відправити запит на email
                  <ArrowUpRight className="ml-2 w-4 h-4" />
               </button>
             </motion.div>
 
-            {/* Action Card 2 - Light Beige */}
+            {/* Action Card 2 - White */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-card-beige p-8 md:p-12 rounded-[30px] md:rounded-[40px] flex flex-col justify-between h-[450px] md:h-[550px] group cursor-pointer"
+              onClick={() => onOpenContact('messenger')}
+              className="bg-white border border-black/5 p-8 md:p-12 rounded-[30px] md:rounded-[40px] flex flex-col justify-between h-[450px] md:h-[520px] group cursor-pointer shadow-sm"
             >
               <div>
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md mb-8">
+                <div className="w-12 h-12 bg-[#F8F6F3] rounded-full flex items-center justify-center shadow-sm mb-8">
                   <Phone className="w-5 h-5 text-[#8C7662]" />
                 </div>
-                <h3 className="text-xl sm:text-2xl md:text-4xl font-sans font-medium text-brand-ink mb-4 md:mb-6 leading-tight">
-                  Написати <br /> в WhatsApp
+                <h3 className="text-xl sm:text-2xl md:text-[1.35rem] lg:text-[1.45rem] xl:text-[1.65rem] font-sans font-medium text-brand-ink mb-4 md:mb-6 leading-tight min-h-[56px] md:min-h-[80px] flex items-end">
+                  <span>Написати в <br className="hidden md:block" /><span className="md:whitespace-nowrap">WhatsApp / Telegram</span></span>
                 </h3>
-                <p className="text-brand-muted text-sm md:text-lg leading-relaxed max-w-[240px]">
-                  Швидкий спосіб отримати відповідь на ваші запитання.
+                <p className="text-brand-muted text-sm md:text-base leading-relaxed max-w-[280px]">
+                  Швидкий спосіб отримати відповідь у зручному для вас месенджері.
                 </p>
               </div>
 
-              <a 
-                href="https://wa.me/380678250825" 
-                target="_blank"
-                rel="noreferrer"
-                className="bg-brand-green text-white w-full py-4 rounded-full text-sm font-medium flex items-center justify-center hover:opacity-90 transition-opacity mt-auto"
+              <button
+                onClick={(e) => { e.stopPropagation(); onOpenContact('messenger'); }}
+                className="bg-brand-ink text-white w-full py-4 rounded-full text-sm font-medium flex items-center justify-center hover:bg-black transition-colors mt-auto"
               >
                 Написати зараз
                 <ArrowUpRight className="ml-2 w-4 h-4" />
-              </a>
+              </button>
             </motion.div>
           </div>
 
@@ -117,7 +116,7 @@ export default function Footer({ onOpenContact }: FooterProps) {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://res.cloudinary.com/dset5uqua/image/upload/v1778579395/ChatGPT_Image_May_12_2026_12_49_33_PM_ljca0z.webp" 
+            src="https://res.cloudinary.com/dset5uqua/image/upload/v1779729351/ChatGPT_Image_May_25_2026_08_14_36_PM_m2wznc.webp" 
             alt="Office landscape"
             className="w-full h-full object-cover opacity-70"
           />
@@ -156,7 +155,7 @@ export default function Footer({ onOpenContact }: FooterProps) {
                 <div>
                   <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1">Прийом</span>
                   <p className="text-white font-sans font-semibold text-base md:text-lg">Пн-Сб</p>
-                  <p className="text-xs md:text-sm text-white/50 font-medium">08:00 – 21:00</p>
+                  <p className="text-xs md:text-sm text-white/50 font-medium">08:00 - 21:00</p>
                 </div>
               </div>
 
@@ -213,7 +212,7 @@ export default function Footer({ onOpenContact }: FooterProps) {
         <div className="content-container flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 text-center md:text-left">
           <p>
             © 2026 Наталія Кондратенко. 
-            <span className="hidden sm:inline"> — </span>
+            <span className="hidden sm:inline"> - </span>
             <br className="sm:hidden" /> 
             Психоаналітична терапія.
           </p>

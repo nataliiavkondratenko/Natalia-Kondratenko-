@@ -9,8 +9,8 @@ export default function Approach({ onOpenContact }: ApproachProps) {
   const steps = [
     {
       label: "Формат",
-      title: "3–4 індивідуальні зустрічі",
-      description: "Зазвичай раз на тиждень. Стандартна тривалість – 50 хвилин.",
+      title: "3-4 індивідуальні зустрічі",
+      description: "Зазвичай раз на тиждень. Стандартна тривалість - 50 хвилин.",
       color: "bg-[#EEF2F6]",
       accent: "text-[#4A6D88]",
       iconBg: "bg-[#4A6D88]/10"
@@ -74,7 +74,7 @@ export default function Approach({ onOpenContact }: ApproachProps) {
 
                 <div className="pt-6 space-y-6">
                   <button 
-                    onClick={onOpenContact}
+                    onClick={() => onOpenContact('all')}
                     className="btn-pill !bg-[#617B5F] !text-white group w-full sm:w-auto min-w-[280px] flex justify-between items-center py-4 px-8 border-none shadow-xl shadow-brand-ink/10 transition-all active:scale-95"
                   >
                      <span className="text-[13px] uppercase tracking-wider font-bold">Можемо почати з однієї розмови</span>
@@ -299,7 +299,7 @@ export default function Approach({ onOpenContact }: ApproachProps) {
                 
                 <div className="flex justify-center">
                   <button 
-                    onClick={onOpenContact}
+                    onClick={() => onOpenContact('all')}
                     className="btn-pill !bg-[#617B5F] !text-white group w-full sm:w-auto min-w-[320px] flex justify-between items-center py-5 px-10 border-none shadow-2xl shadow-black/40 transition-all active:scale-95"
                   >
                      <span className="text-[13px] uppercase tracking-widest font-bold">Можемо почати з однієї розмови</span>

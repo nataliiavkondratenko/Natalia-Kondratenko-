@@ -4,9 +4,10 @@ import { X, MessageCircle, Send } from 'lucide-react';
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
+  mode?: 'all' | 'email' | 'messenger';
 }
 
-export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+export default function ContactModal({ isOpen, onClose, mode = 'all' }: ContactModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -46,82 +47,94 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             <div className="px-8 md:px-12 pb-10 overflow-y-auto custom-scrollbar">
               {/* Header Title */}
               <div className="text-center mb-6 md:mb-8">
-                <h2 className="text-2xl md:text-3xl font-sans font-medium text-brand-ink leading-tight px-4">
-                  Оберіть зручний <br className="hidden sm:block" /> спосіб зв'язку
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-sans font-medium text-brand-ink leading-tight px-4">
+                  {mode === 'email' ? (
+                    <>Надіслати запит <br className="hidden sm:block" /> на email</>
+                  ) : mode === 'messenger' ? (
+                    <>Написати в <br className="hidden sm:block" /> WhatsApp / Telegram</>
+                  ) : (
+                    <>Оберіть зручний <br className="hidden sm:block" /> спосіб зв'язку</>
+                  )}
                 </h2>
               </div>
 
               {/* Instant Contact Options */}
-              <div className="grid grid-cols-1 gap-3 mb-6 md:mb-8">
-                <a 
-                  href="https://wa.me/380678250825" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="flex items-center gap-5 p-4 md:p-5 rounded-3xl bg-[#F8F6F3] group hover:bg-[#F3EFE9] transition-all border border-transparent hover:border-brand-ink/5"
-                >
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-ink shadow-sm group-hover:scale-105 transition-transform shrink-0">
-                    <MessageCircle size={20} className="text-[#25D366]" />
-                  </div>
-                  <div className="overflow-hidden">
-                    <span className="block text-sm font-bold text-brand-ink">WhatsApp</span>
-                    <span className="text-xs text-brand-muted truncate">+38 067 825 08 25</span>
-                  </div>
-                </a>
+              {mode !== 'email' && (
+                <div className="grid grid-cols-1 gap-3 mb-6 md:mb-8">
+                  <a 
+                    href="https://wa.me/380678250825" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="flex items-center gap-5 p-4 md:p-5 rounded-3xl bg-[#F8F6F3] group hover:bg-[#F3EFE9] transition-all border border-transparent hover:border-brand-ink/5"
+                  >
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-ink shadow-sm group-hover:scale-105 transition-transform shrink-0">
+                      <MessageCircle size={20} className="text-[#25D366]" />
+                    </div>
+                    <div className="overflow-hidden">
+                      <span className="block text-sm font-bold text-brand-ink">WhatsApp</span>
+                      <span className="text-xs text-brand-muted truncate">+38 067 825 08 25</span>
+                    </div>
+                  </a>
 
-                <a 
-                  href="https://t.me/nvkondratenko" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="flex items-center gap-5 p-4 md:p-5 rounded-3xl bg-[#F8F6F3] group hover:bg-[#F3EFE9] transition-all border border-transparent hover:border-brand-ink/5"
-                >
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-ink shadow-sm group-hover:scale-105 transition-transform shrink-0">
-                    <Send size={20} className="text-[#0088cc]" />
-                  </div>
-                  <div className="overflow-hidden">
-                    <span className="block text-sm font-bold text-brand-ink">Telegram</span>
-                    <span className="text-xs text-brand-muted truncate">@nvkondratenko</span>
-                  </div>
-                </a>
-              </div>
+                  <a 
+                    href="https://t.me/nvkondratenko" 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="flex items-center gap-5 p-4 md:p-5 rounded-3xl bg-[#F8F6F3] group hover:bg-[#F3EFE9] transition-all border border-transparent hover:border-brand-ink/5"
+                  >
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-ink shadow-sm group-hover:scale-105 transition-transform shrink-0">
+                      <Send size={20} className="text-[#0088cc]" />
+                    </div>
+                    <div className="overflow-hidden">
+                      <span className="block text-sm font-bold text-brand-ink">Telegram</span>
+                      <span className="text-xs text-brand-muted truncate">@nvkondratenko</span>
+                    </div>
+                  </a>
+                </div>
+              )}
 
               {/* OR Divider */}
-              <div className="flex items-center gap-4 mb-6 md:mb-8">
-                <div className="h-[1px] flex-grow bg-brand-ink/10" />
-                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-ink/20 shrink-0">АБО</span>
-                <div className="h-[1px] flex-grow bg-brand-ink/10" />
-              </div>
+              {mode === 'all' && (
+                <div className="flex items-center gap-4 mb-6 md:mb-8">
+                  <div className="h-[1px] flex-grow bg-brand-ink/10" />
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-ink/20 shrink-0">АБО</span>
+                  <div className="h-[1px] flex-grow bg-brand-ink/10" />
+                </div>
+              )}
 
               {/* Form */}
-              <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-                <div className="space-y-3">
-                  <input 
-                    type="text" 
-                    placeholder="Ваше ім'я"
-                    className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all text-sm"
-                    id="form-name"
-                  />
-                  <input 
-                    type="text" 
-                    placeholder="Телефон або email"
-                    className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all text-sm"
-                    id="form-contact"
-                  />
-                  <textarea 
-                    placeholder="Коротко про запит"
-                    rows={3}
-                    className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all resize-none text-sm"
-                    id="form-message"
-                  />
-                </div>
-                
-                <button 
-                  type="submit"
-                  className="w-full bg-brand-ink text-white py-5 rounded-full text-sm font-bold uppercase tracking-widest shadow-xl shadow-brand-ink/10 hover:bg-black transition-all active:scale-[0.98] mt-6"
-                  id="form-submit"
-                >
-                  Відправити
-                </button>
-              </form>
+              {mode !== 'messenger' && (
+                <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
+                  <div className="space-y-3">
+                    <input 
+                      type="text" 
+                      placeholder="Ваше ім'я"
+                      className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all text-sm"
+                      id="form-name"
+                    />
+                    <input 
+                      type="text" 
+                      placeholder="Телефон або email"
+                      className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all text-sm"
+                      id="form-contact"
+                    />
+                    <textarea 
+                      placeholder="Коротко про запит"
+                      rows={3}
+                      className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all resize-none text-sm"
+                      id="form-message"
+                    />
+                  </div>
+                  
+                  <button 
+                    type="submit"
+                    className="w-full bg-brand-ink text-white py-5 rounded-full text-sm font-bold uppercase tracking-widest shadow-xl shadow-brand-ink/10 hover:bg-black transition-all active:scale-[0.98] mt-6"
+                    id="form-submit"
+                  >
+                    {mode === 'email' ? 'Відправити запит на email' : 'Відправити'}
+                  </button>
+                </form>
+              )}
             </div>
           </motion.div>
         </div>

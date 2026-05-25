@@ -22,7 +22,7 @@ export default function Details() {
     {
       id: "03",
       title: "ТРАНСФОРМАЦІЯ",
-      text: "І змінити не лише ситуацію, а і свій власний спосіб жити з нею.",
+      text: "Психоаналітична робота допомагає людині змінити не лише ситуацію, а й свій власний спосіб жити з нею.",
       color: "bg-[#EEF3EE]", // Refined green
       tabColor: "bg-[#D9E6D9]", // Refined tab
       textColor: "text-[#5B755B]",
@@ -36,10 +36,10 @@ export default function Details() {
         <div className="content-container py-24 md:py-32">
           <div className="max-w-6xl mx-auto relative z-10">
             
-            <div className="text-center mb-16 md:mb-32">
+            <div className="text-left mb-16 md:mb-32">
               <span className="badge-pill mb-6 inline-block bg-brand-peach text-brand-ink">Метод</span>
               <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] md:leading-[1] mb-8 text-brand-ink uppercase tracking-tight">Чому психоаналітичний підхід</h2>
-              <p className="text-lg md:text-2xl text-brand-muted max-w-3xl mx-auto font-normal leading-relaxed">
+              <p className="text-lg md:text-2xl text-brand-muted max-w-3xl font-normal leading-relaxed">
                 Психоаналітична психотерапія працює не лише з симптомами, а з причинами.
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function Details() {
                   <h3 className="text-4xl md:text-6xl font-sans font-medium text-brand-ink leading-tight tracking-tight">
                     «Довго, дорого і назавжди»
                   </h3>
-                  <p className="text-lg md:text-xl text-brand-muted opacity-50 italic">— так іноді говорять про психоаналіз.</p>
+                  <p className="text-lg md:text-xl text-brand-muted opacity-50 italic">- так іноді говорять про психоаналіз.</p>
                 </div>
                 
                 <div className="space-y-8 max-w-3xl mx-auto pt-8">
