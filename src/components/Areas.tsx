@@ -95,7 +95,7 @@ function TimelineCard({ cat, idx }: TimelineCardProps) {
           {cat.items.map((item, i) => (
             <span 
               key={i} 
-              className="inline-block px-3 py-1.5 rounded-full border border-black/[0.08] text-[11px] md:text-[10px] lg:text-[10px] xl:text-[13px] text-brand-ink/90 leading-tight bg-white/40 whitespace-normal text-left break-words"
+              className="inline-block px-4 py-2 md:px-3 md:py-1.5 rounded-full border border-black/[0.08] text-[13px] sm:text-sm md:text-[10px] lg:text-[10px] xl:text-[13px] text-brand-ink/90 leading-tight bg-white/40 whitespace-normal text-left break-words"
               style={{ borderColor: `${cat.themeColor}20` }}
             >
               {item}
