@@ -45,7 +45,7 @@ export default function Details() {
             </div>
 
             {/* Folders Stack Layout - Sticky on mobile */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12 max-w-7xl mx-auto mb-32 px-4 md:px-0">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-5 lg:gap-8 max-w-7xl mx-auto mb-32 px-4 md:px-0">
               {points.map((point, index) => (
                 <motion.div
                   key={point.id}
@@ -61,33 +61,33 @@ export default function Details() {
                   {/* Folder Tab */}
                   <div className={`
                     absolute top-0 left-[20px] 
-                    w-[180px] h-[48px]
+                    w-[160px] md:w-[125px] lg:w-[145px] xl:w-[180px] h-[48px]
                     ${point.tabColor} rounded-t-2xl
-                    flex items-center px-8
+                    flex items-center px-4 md:px-3 lg:px-5 xl:px-8
                     border-x border-t border-black/[0.05]
                     shadow-[-4px_0_15px_rgba(0,0,0,0.02)]
                     z-0
                   `}>
-                    <span className={`text-[10px] font-mono font-black tracking-[0.15em] uppercase truncate ${point.textColor}`}>
+                    <span className={`text-[9px] md:text-[8px] lg:text-[8px] xl:text-[10px] font-mono font-black tracking-[0.15em] uppercase truncate ${point.textColor}`}>
                       {point.title}
                     </span>
                   </div>
  
                   {/* Folder Body */}
                   <div className={`
-                    flex-grow relative ${point.color} p-8 md:p-10
-                    min-h-[320px] md:min-h-[360px]
-                    rounded-tr-3xl rounded-b-3xl
+                    flex-grow relative ${point.color} p-6 md:p-5 lg:p-6 xl:p-10
+                    min-h-[240px] md:min-h-[220px] lg:min-h-[240px] xl:min-h-[300px]
+                    rounded-tr-2xl rounded-b-2xl md:rounded-tr-3xl md:rounded-b-3xl
                     border border-black/[0.05]
                     shadow-[0_20px_50px_rgba(0,0,0,0.08)]
                     hover:-translate-y-2 transition-all duration-500
                     z-10
                   `}>
-                    <div className="flex flex-col gap-8 h-full">
+                    <div className="flex flex-col gap-6 md:gap-5 lg:gap-8 h-full">
                       <div className="flex-shrink-0">
-                         <span className="text-2xl md:text-3xl font-mono text-black/5 font-bold">[{point.id}]</span>
+                         <span className="text-xl md:text-lg lg:text-xl xl:text-3xl font-mono text-black/5 font-bold">[{point.id}]</span>
                       </div>
-                      <p className="text-xl md:text-2xl font-normal leading-[1.45] text-brand-ink tracking-tight flex-grow">
+                      <p className="text-lg md:text-[13px] lg:text-base xl:text-lg font-normal leading-relaxed text-brand-ink tracking-tight flex-grow break-words">
                         {point.text}
                       </p>
                     </div>

@@ -60,12 +60,12 @@ function TimelineCard({ cat, idx }: TimelineCardProps) {
                  `}
       style={{ 
         zIndex: idx + 10,
-        top: typeof window !== 'undefined' && window.innerWidth < 1024 ? `${100 + idx * 24}px` : undefined
+        top: typeof window !== 'undefined' && window.innerWidth < 768 ? `${100 + idx * 24}px` : undefined
       }}
     >
-      <div className={`${cat.bgColor} p-8 md:p-10 card-rounded flex flex-col flex-grow shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-black/[0.03] relative z-10 transition-transform duration-500`}>
+      <div className={`${cat.bgColor} p-6 md:p-6 lg:p-5 xl:p-10 card-rounded flex flex-col flex-grow shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-black/[0.03] relative z-10 transition-transform duration-500`}>
         {/* Timeline Header */}
-        <div className="relative mb-14 flex items-center justify-between px-2" style={{ color: cat.themeColor }}>
+        <div className="relative mb-10 lg:mb-8 xl:mb-14 flex items-center justify-between px-1" style={{ color: cat.themeColor }}>
           {/* Connecting Line */}
           <div className="absolute left-6 right-6 top-1/2 -translate-y-1/2 h-[1.5px] bg-current opacity-20 z-0" />
           
@@ -74,12 +74,12 @@ function TimelineCard({ cat, idx }: TimelineCardProps) {
               key={pos} 
               className={`relative z-10 flex items-center justify-center transition-all duration-500
                 ${pos === idx 
-                  ? 'w-12 h-12 rounded-full bg-white shadow-md border border-black/5' 
-                  : `w-5 h-5 rounded-full border-2 border-current ${cat.bgColor}`
+                  ? 'w-10 h-10 xl:w-12 xl:h-12 rounded-full bg-white shadow-md border border-black/5' 
+                  : `w-4 h-4 xl:w-5 xl:h-5 rounded-full border-2 border-current ${cat.bgColor}`
                 }`}
             >
               {pos === idx ? (
-                <cat.icon className="w-5 h-5" />
+                <cat.icon className="w-4 h-4 xl:w-5 xl:h-5" />
               ) : (
                 <div className={`w-1 h-1 rounded-full bg-current opacity-20`} />
               )}
@@ -87,15 +87,15 @@ function TimelineCard({ cat, idx }: TimelineCardProps) {
           ))}
         </div>
 
-        <h4 className="text-2xl md:text-3xl font-semibold mb-8 leading-tight text-brand-ink">
+        <h4 className="text-xl md:text-lg lg:text-base xl:text-2xl font-semibold mb-6 leading-tight text-brand-ink">
           {cat.title}
         </h4>
         
-        <div className="flex flex-wrap gap-2.5 flex-grow content-start font-normal">
+        <div className="flex flex-wrap gap-2 flex-grow content-start font-normal">
           {cat.items.map((item, i) => (
             <span 
               key={i} 
-              className="inline-block px-3.5 py-2 rounded-full border border-black/[0.08] text-[13px] lg:text-[14px] text-brand-ink/90 leading-tight bg-white/40 whitespace-normal text-left"
+              className="inline-block px-3 py-1.5 rounded-full border border-black/[0.08] text-[11px] md:text-[10px] lg:text-[10px] xl:text-[13px] text-brand-ink/90 leading-tight bg-white/40 whitespace-normal text-left break-words"
               style={{ borderColor: `${cat.themeColor}20` }}
             >
               {item}
