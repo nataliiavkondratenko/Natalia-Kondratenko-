@@ -43,6 +43,13 @@ interface TimelineCardProps {
 }
 
 function TimelineCard({ cat, idx }: TimelineCardProps) {
+  const topClasses = [
+    'sticky top-[100px] md:relative md:top-auto',
+    'sticky top-[124px] md:relative md:top-auto',
+    'sticky top-[148px] md:relative md:top-auto',
+    'sticky top-[172px] md:relative md:top-auto'
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -54,13 +61,12 @@ function TimelineCard({ cat, idx }: TimelineCardProps) {
         ease: [0.16, 1, 0.3, 1] 
       }}
       className={`relative group h-full flex flex-col 
-                  sticky md:relative
+                  ${topClasses[idx]}
                   mb-6 md:mb-0
                   ${idx === categories.length - 1 ? 'mb-40 md:mb-0' : ''}
                  `}
       style={{ 
-        zIndex: idx + 10,
-        top: typeof window !== 'undefined' && window.innerWidth < 768 ? `${100 + idx * 24}px` : undefined
+        zIndex: idx + 10
       }}
     >
       <div className={`${cat.bgColor} p-6 md:p-6 lg:p-5 xl:p-10 card-rounded flex flex-col flex-grow shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-black/[0.03] relative z-10 transition-transform duration-500`}>
@@ -95,7 +101,7 @@ function TimelineCard({ cat, idx }: TimelineCardProps) {
           {cat.items.map((item, i) => (
             <span 
               key={i} 
-              className="inline-block px-4 py-2 md:px-3 md:py-1.5 rounded-full border border-black/[0.08] text-[13px] sm:text-sm md:text-[10px] lg:text-[10px] xl:text-[13px] text-brand-ink/90 leading-tight bg-white/40 whitespace-normal text-left break-words"
+              className="inline-block px-4 py-2 md:px-3 md:py-1.5 rounded-full border border-black/[0.08] text-[13px] sm:text-[14px] md:text-[11.5px] lg:text-[11px] xl:text-[13px] text-brand-ink/90 leading-tight bg-white/40 whitespace-normal text-left break-words"
               style={{ borderColor: `${cat.themeColor}20` }}
             >
               {item}

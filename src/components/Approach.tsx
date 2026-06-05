@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { ArrowUpRight, AlertCircle, UserCheck, Baby, Sparkles, CheckCircle2, Info, Handshake, Clock, ClipboardCheck, Globe } from 'lucide-react';
 
 interface ApproachProps {
-  onOpenContact: () => void;
+  onOpenContact: (mode?: 'all' | 'email' | 'messenger') => void;
 }
 
 export default function Approach({ onOpenContact }: ApproachProps) {
@@ -75,10 +75,10 @@ export default function Approach({ onOpenContact }: ApproachProps) {
                 <div className="pt-6 space-y-6">
                   <button 
                     onClick={() => onOpenContact('all')}
-                    className="btn-pill !bg-[#617B5F] !text-white group w-full sm:w-auto min-w-[280px] flex justify-between items-center py-4 px-8 border-none shadow-xl shadow-brand-ink/10 transition-all active:scale-95"
+                    className="btn-pill !bg-[#617B5F] !text-white group w-full sm:w-auto sm:min-w-[280px] flex justify-between items-center py-4 px-5 sm:px-8 border-none shadow-xl shadow-brand-ink/10 transition-all active:scale-95"
                   >
-                     <span className="text-[13px] uppercase tracking-wider font-bold">Можемо почати з однієї розмови</span>
-                     <div className="ml-4 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-[#617B5F] transition-all shrink-0">
+                     <span className="text-[12px] sm:text-[13px] uppercase tracking-wider font-bold text-left leading-tight">Можемо почати з однієї розмови</span>
+                     <div className="ml-3 sm:ml-4 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-[#617B5F] transition-all shrink-0">
                         <ArrowUpRight className="w-5 h-5" />
                      </div>
                   </button>
@@ -300,10 +300,10 @@ export default function Approach({ onOpenContact }: ApproachProps) {
                 <div className="flex justify-center">
                   <button 
                     onClick={() => onOpenContact('all')}
-                    className="btn-pill !bg-[#617B5F] !text-white group w-full sm:w-auto min-w-[320px] flex justify-between items-center py-5 px-10 border-none shadow-2xl shadow-black/40 transition-all active:scale-95"
+                    className="btn-pill !bg-[#617B5F] !text-white group w-full sm:w-auto sm:min-w-[320px] flex justify-between items-center py-5 px-6 sm:px-10 border-none shadow-2xl shadow-black/40 transition-all active:scale-95"
                   >
-                     <span className="text-[13px] uppercase tracking-widest font-bold">Можемо почати з однієї розмови</span>
-                     <div className="ml-4 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-[#617B5F] transition-all shrink-0">
+                     <span className="text-[12px] sm:text-[13px] uppercase tracking-widest font-bold text-left leading-tight">Можемо почати з однієї розмови</span>
+                     <div className="ml-3 sm:ml-4 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-[#617B5F] transition-all shrink-0">
                         <ArrowUpRight className="w-5 h-5" />
                      </div>
                   </button>

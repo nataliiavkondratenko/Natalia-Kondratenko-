@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 
 interface HeroProps {
-  onOpenContact: () => void;
+  onOpenContact: (mode?: 'all' | 'email' | 'messenger') => void;
 }
 
 export default function Hero({ onOpenContact }: HeroProps) {
@@ -14,8 +14,13 @@ export default function Hero({ onOpenContact }: HeroProps) {
         muted
         loop
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover opacity-60"
       >
+        <source 
+          src="https://res.cloudinary.com/dset5uqua/video/upload/v1776692549/%D0%9D%D0%B0%D1%82%D0%B0%D1%88%D0%B0_%D0%B2%D0%BE%D0%B7%D0%BB%D0%B5_%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0_ywihpy.mp4" 
+          type="video/mp4" 
+        />
         <source 
           src="https://res.cloudinary.com/dset5uqua/video/upload/v1776692549/%D0%9D%D0%B0%D1%82%D0%B0%D1%88%D0%B0_%D0%B2%D0%BE%D0%B7%D0%BB%D0%B5_%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0_ywihpy.webm" 
           type="video/webm" 
@@ -68,10 +73,10 @@ export default function Hero({ onOpenContact }: HeroProps) {
                 >
                   <button 
                     onClick={() => onOpenContact('all')}
-                    className="btn-pill !bg-brand-green !text-white group w-full sm:w-auto min-w-[280px] flex justify-between items-center py-4 px-8 border-none shadow-xl shadow-black/20"
+                    className="btn-pill !bg-brand-green !text-white group w-full sm:w-auto sm:min-w-[280px] flex justify-between items-center py-4 px-6 sm:px-8 border-none shadow-xl shadow-black/20"
                   >
-                     <span className="text-[13px] uppercase tracking-wider font-bold">ОБГОВОРИТИ СВІЙ ЗАПИТ</span>
-                     <div className="ml-4 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-brand-green transition-all shrink-0">
+                     <span className="text-[12px] sm:text-[13px] uppercase tracking-wider font-bold text-left">ОБГОВОРИТИ СВІЙ ЗАПИТ</span>
+                     <div className="ml-3 sm:ml-4 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-brand-green transition-all shrink-0">
                         <ArrowUpRight className="w-5 h-5" />
                      </div>
                   </button>

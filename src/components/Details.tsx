@@ -46,32 +46,39 @@ export default function Details() {
 
             {/* Folders Stack Layout - Sticky on mobile */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-5 lg:gap-8 max-w-7xl mx-auto mb-32 px-4 md:px-0">
-              {points.map((point, index) => (
-                <motion.div
-                  key={point.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: index * 0.1, duration: 0.8 }}
-                  className="relative flex flex-col pt-12 group sticky top-[120px] md:relative md:top-0"
-                  style={{ 
-                    zIndex: 10 + index 
-                  }}
-                >
-                  {/* Folder Tab */}
-                  <div className={`
-                    absolute top-0 left-[20px] 
-                    w-[160px] md:w-[125px] lg:w-[145px] xl:w-[180px] h-[48px]
-                    ${point.tabColor} rounded-t-2xl
-                    flex items-center px-4 md:px-3 lg:px-5 xl:px-8
-                    border-x border-t border-black/[0.05]
-                    shadow-[-4px_0_15px_rgba(0,0,0,0.02)]
-                    z-0
-                  `}>
-                    <span className={`text-[9px] md:text-[8px] lg:text-[8px] xl:text-[10px] font-mono font-black tracking-[0.15em] uppercase truncate ${point.textColor}`}>
-                      {point.title}
-                    </span>
-                  </div>
+              {points.map((point, index) => {
+                const folderTopClasses = [
+                  'sticky top-[100px] md:relative md:top-auto',
+                  'sticky top-[132px] md:relative md:top-auto',
+                  'sticky top-[164px] md:relative md:top-auto'
+                ];
+                
+                return (
+                  <motion.div
+                    key={point.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: index * 0.1, duration: 0.8 }}
+                    className={`relative flex flex-col pt-12 group ${folderTopClasses[index]}`}
+                    style={{ 
+                      zIndex: 10 + index 
+                    }}
+                  >
+                    {/* Folder Tab */}
+                    <div className={`
+                      absolute top-0 left-[20px] 
+                      w-[160px] md:w-[145px] lg:w-[145px] xl:w-[180px] h-[48px]
+                      ${point.tabColor} rounded-t-2xl
+                      flex items-center px-4 md:px-3 lg:px-5 xl:px-8
+                      border-x border-t border-black/[0.05]
+                      shadow-[-4px_0_15px_rgba(0,0,0,0.02)]
+                      z-0
+                    `}>
+                      <span className={`text-[9px] md:text-[8.5px] lg:text-[8.5px] xl:text-[10px] font-mono font-black tracking-[0.1em] uppercase truncate ${point.textColor}`}>
+                        {point.title}
+                      </span>
+                    </div>
  
                   {/* Folder Body */}
                   <div className={`
@@ -93,7 +100,8 @@ export default function Details() {
                     </div>
                   </div>
                 </motion.div>
-              ))}
+              );
+            })}
             </div>
 
             {/* Bottom Final thought - Improved Spacing */}
@@ -108,7 +116,7 @@ export default function Details() {
                   <h3 className="text-4xl md:text-6xl font-sans font-medium text-brand-ink leading-tight tracking-tight">
                     «Довго, дорого і назавжди»
                   </h3>
-                  <p className="text-lg md:text-xl text-brand-muted opacity-50 italic">- так іноді говорять про психоаналіз.</p>
+                  <p className="text-lg md:text-xl text-brand-muted opacity-50 italic">так іноді говорять про психоаналіз</p>
                 </div>
                 
                 <div className="space-y-8 max-w-3xl mx-auto pt-8">

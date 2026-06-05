@@ -54,7 +54,7 @@ export default function Footer({ onOpenContact }: FooterProps) {
                   <span>Обговорити <br className="hidden md:block lg:hidden xl:block" /> свій запит</span>
                 </h3>
                 <p className="text-brand-muted text-sm md:text-xs lg:text-sm xl:text-base leading-relaxed max-w-[280px]">
-                  Залишіть заявку, щоб ми могли підібрати зручний час для знайомства.
+                  Напишіть мені, щоб ми могли підібрати зручний час для знайомства.
                 </p>
               </div>
               
@@ -62,7 +62,7 @@ export default function Footer({ onOpenContact }: FooterProps) {
                 onClick={(e) => { e.stopPropagation(); onOpenContact('email'); }}
                 className="bg-brand-ink text-white w-full py-3.5 sm:py-4 rounded-full text-xs sm:text-sm font-medium flex items-center justify-center hover:bg-black transition-colors mt-auto px-4 md:px-2 lg:px-4"
               >
-                 <span>Відправити запит на email</span>
+                 <span>Відправити email</span>
                  <ArrowUpRight className="ml-1.5 md:ml-1 w-4 h-4 flex-shrink-0" />
               </button>
             </motion.div>
@@ -148,55 +148,55 @@ export default function Footer({ onOpenContact }: FooterProps) {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
               {/* Working Hours */}
-              <div className="flex items-center gap-4 md:gap-5 group">
+              <div className="flex items-center gap-4 md:gap-5 group min-w-0">
                 <div className="w-12 h-12 md:w-14 md:h-14 bg-[#D4C3B5] rounded-full flex items-center justify-center flex-shrink-0 text-brand-ink transition-all group-hover:scale-105 shadow-lg">
                   <Calendar className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <div>
-                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1">Прийом</span>
-                  <p className="text-white font-sans font-semibold text-base md:text-lg">Пн-Сб</p>
-                  <p className="text-xs md:text-sm text-white/50 font-medium">08:00 - 21:00</p>
+                <div className="overflow-hidden min-w-0 flex-1">
+                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1 truncate">Прийом</span>
+                  <p className="text-white font-sans font-semibold text-base md:text-lg truncate">Пн-Сб</p>
+                  <p className="text-xs md:text-sm text-white/50 font-medium truncate">08:00 - 21:00</p>
                 </div>
               </div>
 
               {/* Phone */}
-              <div className="flex items-center gap-4 md:gap-5 group">
+              <div className="flex items-center gap-4 md:gap-5 group min-w-0">
                 <div className="w-12 h-12 md:w-14 md:h-14 bg-[#A7C7A7] rounded-full flex items-center justify-center flex-shrink-0 text-[#2D4A2D] transition-all group-hover:scale-105 shadow-xl">
                   <Phone className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <div>
-                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1">Телефон</span>
-                  <a href="tel:+380678250825" className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/60 transition-colors">
+                <div className="overflow-hidden min-w-0 flex-1">
+                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1 truncate">Телефон</span>
+                  <a href="tel:+380678250825" className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/60 transition-colors truncate">
                     +38 067 825 08 25
                   </a>
                 </div>
               </div>
 
               {/* Email */}
-              <div className="flex items-center gap-4 md:gap-5 group">
+              <div className="flex items-center gap-4 md:gap-5 group min-w-0">
                 <div className="w-12 h-12 md:w-14 md:h-14 bg-[#A7B9C7] rounded-full flex items-center justify-center flex-shrink-0 text-[#2D3A4A] transition-all group-hover:scale-105 shadow-xl">
                   <Mail className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <div className="overflow-hidden">
-                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1">Email</span>
-                  <a href="mailto:nataliia.v.kondratenko@gmail.com" className="text-white font-sans font-semibold text-base md:text-lg block truncate hover:text-white/60 transition-colors">
+                <div className="overflow-hidden min-w-0 flex-1">
+                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1 truncate">Email</span>
+                  <a href="mailto:nataliia.v.kondratenko@gmail.com" className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/60 transition-colors truncate">
                     nataliia.v.kondratenko@gmail.com
                   </a>
                 </div>
               </div>
 
               {/* Instagram */}
-              <div className="flex items-center gap-4 md:gap-5 group">
+              <div className="flex items-center gap-4 md:gap-5 group min-w-0">
                 <div className="w-12 h-12 md:w-14 md:h-14 bg-[#D4B5B5] rounded-full flex items-center justify-center flex-shrink-0 text-[#4A2D2D] transition-all group-hover:scale-105 shadow-xl">
                   <Instagram className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <div>
-                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1">Instagram</span>
+                <div className="overflow-hidden min-w-0 flex-1">
+                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1 truncate">Instagram</span>
                   <a 
                     href="https://www.instagram.com/nataliia.kondratenko.psycholog" 
                     target="_blank" 
                     rel="noreferrer"
-                    className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/60 transition-colors leading-tight"
+                    className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/60 transition-colors leading-tight truncate"
                   >
                     @nataliia.kondratenko
                   </a>
@@ -204,17 +204,17 @@ export default function Footer({ onOpenContact }: FooterProps) {
               </div>
 
               {/* Facebook */}
-              <div className="flex items-center gap-4 md:gap-5 group">
+              <div className="flex items-center gap-4 md:gap-5 group min-w-0">
                 <div className="w-12 h-12 md:w-14 md:h-14 bg-[#BAC9DF] rounded-full flex items-center justify-center flex-shrink-0 text-[#1E3A5F] transition-all group-hover:scale-105 shadow-xl">
                   <Facebook className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <div>
-                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1">Facebook</span>
+                <div className="overflow-hidden min-w-0 flex-1">
+                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1 truncate">Facebook</span>
                   <a 
                     href="https://www.facebook.com/share/16ukpnKtuf/?mibextid=wwXIfr" 
                     target="_blank" 
                     rel="noreferrer"
-                    className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/60 transition-colors leading-tight whitespace-nowrap"
+                    className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/60 transition-colors leading-tight truncate"
                   >
                     Наталія Кондратенко
                   </a>

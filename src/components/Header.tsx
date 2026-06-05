@@ -46,7 +46,7 @@ export default function Header({ onOpenContact }: HeaderProps) {
         </div>
 
         {/* Central Info Label - Absolutely centered relative to the container */}
-        <div className={`absolute left-1/2 -translate-x-1/2 hidden md:flex lg:flex xl:flex transition-colors duration-300 ${isScrolled ? 'text-brand-ink' : 'text-white'}`}>
+        <div className={`absolute left-1/2 -translate-x-1/2 hidden md:flex lg:hidden xl:flex transition-colors duration-300 ${isScrolled ? 'text-brand-ink' : 'text-white'}`}>
           <span className="text-[8px] lg:text-[9px] font-bold uppercase tracking-[0.15em] opacity-60 text-center whitespace-nowrap max-w-[200px] lg:max-w-none overflow-hidden text-ellipsis">
             Клінічний психолог • психотерапевт
           </span>
