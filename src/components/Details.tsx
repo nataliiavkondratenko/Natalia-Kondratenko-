@@ -40,7 +40,7 @@ export default function Details() {
               <span className="badge-pill mb-6 inline-block bg-brand-peach text-brand-ink">Метод</span>
               <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] md:leading-[1] mb-8 text-brand-ink uppercase tracking-tight">Чому психоаналітичний підхід</h2>
               <p className="text-lg md:text-2xl text-brand-muted max-w-3xl font-normal leading-relaxed">
-                Психоаналітична психотерапія працює не лише з симптомами, а з причинами.
+                Психоаналітична психотерапія працює не лише з симптомами,<br className="hidden md:inline" /> а з причинами.
               </p>
             </div>
 
