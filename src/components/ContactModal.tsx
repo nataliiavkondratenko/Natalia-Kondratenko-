@@ -28,7 +28,7 @@ export default function ContactModal({ isOpen, onClose, mode = 'all' }: ContactM
     }
   }, [isOpen]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -43,26 +43,45 @@ export default function ContactModal({ isOpen, onClose, mode = 'all' }: ContactM
 
     setIsSubmitting(true);
 
-    // Simulate secure delivery to nataliia.v.kondratenko@gmail.com
+    // Store in localStorage as local backup first
+    try {
+      const existingInquiries = JSON.parse(localStorage.getItem('inquiries') || '[]');
+      existingInquiries.push({
+        name,
+        contact,
+        message,
+        timestamp: new Date().toISOString(),
+        recipient: 'nataliia.v.kondratenko@gmail.com'
+      });
+      localStorage.setItem('inquiries', JSON.stringify(existingInquiries));
+    } catch (err) {
+      console.error('Failed to save inquiry to local backup', err);
+    }
+
+    // Directly open custom mailto link to email client prefilled with form data
     setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      
-      // Store in localStorage as backup or print for records
-      try {
-        const existingInquiries = JSON.parse(localStorage.getItem('inquiries') || '[]');
-        existingInquiries.push({
-          name,
-          contact,
-          message,
-          timestamp: new Date().toISOString(),
-          recipient: 'nataliia.v.kondratenko@gmail.com'
-        });
-        localStorage.setItem('inquiries', JSON.stringify(existingInquiries));
-      } catch (err) {
-        console.error('Failed to save inquiry to local backup', err);
-      }
-    }, 1200);
+      triggerMailtoFallback();
+    }, 400);
+  };
+
+  const triggerMailtoFallback = () => {
+    const emailSubject = `Запит на консультацію: ${name}`;
+    const emailBody = `Вітаю!
+
+Мене звати: ${name}
+Контактний телефон / email: ${contact}
+
+Запит:
+${message || '—'}
+`;
+
+    const mailtoUrl = `mailto:nataliia.v.kondratenko@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    setIsSubmitting(false);
+    setIsSuccess(true);
+    
+    // Open native email app
+    window.location.href = mailtoUrl;
   };
 
   return (
