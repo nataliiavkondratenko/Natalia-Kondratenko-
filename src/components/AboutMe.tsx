@@ -37,9 +37,9 @@ export default function AboutMe() {
             <div className="space-y-8">
               <div className="space-y-6">
                 <span className="badge-pill inline-block bg-brand-peach text-brand-ink uppercase tracking-widest text-[10px] font-bold">Про мене</span>
-                <h3 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tighter text-brand-ink leading-[0.9]">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tighter text-brand-ink leading-[0.9]">
                   Наталія <br /> Кондратенко
-                </h3>
+                </h2>
               </div>
               
               <div className="flex flex-wrap gap-3">
@@ -93,7 +93,7 @@ export default function AboutMe() {
               </div>
             </div>
             <div className="space-y-4">
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.25em] font-bold text-brand-ink/40">Стандарти практики</p>
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.25em] font-bold text-brand-ink/75">Стандарти практики</p>
               <p className="text-xl md:text-[22px] lg:text-[24px] leading-tight text-brand-ink font-medium tracking-tight">
                 Маю понад 800 годин власного аналізу і регулярну супервізію.
               </p>
@@ -113,7 +113,7 @@ export default function AboutMe() {
               </div>
             </div>
             <div className="space-y-4">
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.25em] font-bold text-brand-ink/40">Мови роботи</p>
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.25em] font-bold text-brand-ink/75">Мови роботи</p>
               <p className="text-xl md:text-[22px] lg:text-[24px] leading-tight text-brand-ink font-medium tracking-tight">
                 Працюю українською, російською та англійською.
               </p>

@@ -109,23 +109,23 @@ export default function Details() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-32 md:mt-48 text-center"
+              className="mt-16 md:mt-48 text-center"
             >
-              <div className="max-w-4xl mx-auto space-y-16">
-                <div className="space-y-4">
+              <div className="max-w-4xl mx-auto space-y-8 md:space-y-16">
+                 <div className="space-y-2 md:space-y-4">
                   <h3 className="text-4xl md:text-6xl font-sans font-medium text-brand-ink leading-tight tracking-tight">
                     «Довго, дорого і назавжди»
                   </h3>
-                  <p className="text-lg md:text-xl text-brand-muted opacity-50 italic">так іноді говорять про психоаналіз</p>
+                  <p className="text-lg md:text-xl text-brand-muted font-medium italic">так іноді говорять про психоаналіз</p>
                 </div>
                 
-                <div className="space-y-8 max-w-3xl mx-auto pt-8">
+                 <div className="space-y-4 md:space-y-8 max-w-3xl mx-auto pt-4 md:pt-8">
                   <div className="inline-block relative">
                     <p className="text-2xl md:text-3xl lg:text-4xl font-sans font-medium italic leading-tight text-brand-ink relative z-10 px-8">
-                      Але «назавжди» тут не про безкінечну терапію.
+                       Але «назавжди» тут не про безкінечну терапію.
                     </p>
                   </div>
-                  <p className="text-xl md:text-2xl text-brand-muted leading-relaxed font-normal max-w-2xl mx-auto">
+                  <p className="text-xl md:text-2xl text-brand-ink/80 leading-relaxed font-normal max-w-2xl mx-auto">
                     Це про зміни, які з часом вбудовуються у спосіб життя і продовжують працювати поза терапією.
                   </p>
                 </div>

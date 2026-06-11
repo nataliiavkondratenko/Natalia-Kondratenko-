@@ -93,9 +93,9 @@ function TimelineCard({ cat, idx }: TimelineCardProps) {
           ))}
         </div>
 
-        <h4 className="text-xl md:text-lg lg:text-base xl:text-2xl font-semibold mb-6 leading-tight text-brand-ink">
+        <h3 className="text-xl md:text-lg lg:text-base xl:text-2xl font-semibold mb-6 leading-tight text-brand-ink">
           {cat.title}
-        </h4>
+        </h3>
         
         <div className="flex flex-wrap gap-2 flex-grow content-start font-normal">
           {cat.items.map((item, i) => (

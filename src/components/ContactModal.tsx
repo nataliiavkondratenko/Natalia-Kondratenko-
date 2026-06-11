@@ -137,8 +137,9 @@ ${message || '—'}
               <button 
                 onClick={onClose}
                 className="p-2 text-brand-ink/30 hover:text-brand-ink transition-colors hover:bg-black/5 rounded-full"
-                aria-label="Close modal"
+                aria-label="Закрити модальне вікно"
               >
+                <span className="sr-only">Закрити модальне вікно</span>
                 <X size={24} />
               </button>
             </div>
@@ -154,7 +155,7 @@ ${message || '—'}
                     <Check size={32} />
                   </div>
                   <div className="space-y-3">
-                    <h3 className="text-2xl font-sans font-medium text-brand-ink">Надіслано успішно!</h3>
+                    <h2 className="text-2xl font-sans font-medium text-brand-ink">Надіслано успішно!</h2>
                     <p className="text-sm text-brand-muted leading-relaxed max-w-md mx-auto px-2">
                       Дякую за звернення! Ваше повідомлення прийнято. Я отримаю його на адресу <span className="font-semibold text-brand-ink">nataliia.v.kondratenko@gmail.com</span> та зв'яжуся з вами найближчим часом для узгодження часу зустрічі.
                     </p>
@@ -234,6 +235,7 @@ ${message || '—'}
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="Ваше ім'я"
+                          aria-label="Ваше ім'я"
                           className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all text-sm"
                           id="form-name"
                           disabled={isSubmitting}
@@ -243,6 +245,7 @@ ${message || '—'}
                           value={contact}
                           onChange={(e) => setContact(e.target.value)}
                           placeholder="Телефон або email"
+                          aria-label="Телефон або email"
                           className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all text-sm"
                           id="form-contact"
                           disabled={isSubmitting}
@@ -251,6 +254,7 @@ ${message || '—'}
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
                           placeholder="Коротко про запит"
+                          aria-label="Коротко про запит"
                           rows={3}
                           className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all resize-none text-sm"
                           id="form-message"

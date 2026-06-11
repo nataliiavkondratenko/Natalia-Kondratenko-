@@ -99,11 +99,11 @@ export default function Footer({ onOpenContact }: FooterProps) {
           </div>
 
           <div className="mt-16 pt-12 border-t border-black/5 flex flex-col md:flex-row items-center justify-center gap-8">
-            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-black/30 flex flex-wrap justify-center items-center gap-4 md:gap-8">
+            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-bold text-brand-ink/80 flex flex-wrap justify-center items-center gap-4 md:gap-8">
               <span>психоаналітичний підхід</span>
-              <span className="w-1.5 h-1.5 bg-black/10 rounded-full hidden md:block" />
+              <span className="w-1.5 h-1.5 bg-black/20 rounded-full hidden md:block" />
               <span>професійна етика</span>
-              <span className="w-1.5 h-1.5 bg-black/10 rounded-full hidden md:block" />
+              <span className="w-1.5 h-1.5 bg-black/20 rounded-full hidden md:block" />
               <span>конфіденційність</span>
             </p>
           </div>
@@ -153,9 +153,9 @@ export default function Footer({ onOpenContact }: FooterProps) {
                   <Calendar className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div className="overflow-hidden min-w-0 flex-1">
-                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1 truncate">Прийом</span>
+                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-[#E5DCD3] mb-1 truncate">Прийом</span>
                   <p className="text-white font-sans font-semibold text-base md:text-lg truncate">Пн-Сб</p>
-                  <p className="text-xs md:text-sm text-white/50 font-medium truncate">08:00 - 21:00</p>
+                  <p className="text-xs md:text-sm text-white/70 font-medium truncate">08:00 - 21:00</p>
                 </div>
               </div>
 
@@ -165,8 +165,8 @@ export default function Footer({ onOpenContact }: FooterProps) {
                   <Phone className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div className="overflow-hidden min-w-0 flex-1">
-                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1 truncate">Телефон</span>
-                  <a href="tel:+380678250825" className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/60 transition-colors truncate">
+                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-[#E5DCD3] mb-1 truncate">Телефон</span>
+                  <a href="tel:+380678250825" className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/65 transition-colors truncate">
                     +38 067 825 08 25
                   </a>
                 </div>
@@ -178,8 +178,8 @@ export default function Footer({ onOpenContact }: FooterProps) {
                   <Mail className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div className="overflow-hidden min-w-0 flex-1">
-                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1 truncate">Email</span>
-                  <a href="mailto:nataliia.v.kondratenko@gmail.com" className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/60 transition-colors truncate">
+                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-[#E5DCD3] mb-1 truncate">Email</span>
+                  <a href="mailto:nataliia.v.kondratenko@gmail.com" className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/65 transition-colors truncate">
                     nataliia.v.kondratenko@gmail.com
                   </a>
                 </div>
@@ -191,12 +191,12 @@ export default function Footer({ onOpenContact }: FooterProps) {
                   <Instagram className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div className="overflow-hidden min-w-0 flex-1">
-                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1 truncate">Instagram</span>
+                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-[#E5DCD3] mb-1 truncate">Instagram</span>
                   <a 
                     href="https://www.instagram.com/nataliia.kondratenko.psycholog" 
                     target="_blank" 
                     rel="noreferrer"
-                    className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/60 transition-colors leading-tight truncate"
+                    className="text-white font-sans font-semibold text-base md:text-lg block hover:text-white/65 transition-colors leading-tight truncate"
                   >
                     @nataliia.kondratenko
                   </a>
@@ -209,7 +209,7 @@ export default function Footer({ onOpenContact }: FooterProps) {
                   <Facebook className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div className="overflow-hidden min-w-0 flex-1">
-                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-white/30 mb-1 truncate">Facebook</span>
+                  <span className="block text-[8px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-[#E5DCD3] mb-1 truncate">Facebook</span>
                   <a 
                     href="https://www.facebook.com/share/16ukpnKtuf/?mibextid=wwXIfr" 
                     target="_blank" 
@@ -227,7 +227,7 @@ export default function Footer({ onOpenContact }: FooterProps) {
 
       {/* Footer Bottom */}
       <div className="bg-white py-10 md:py-12 border-t border-brand-ink/5">
-        <div className="content-container flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold opacity-30 text-center md:text-left">
+        <div className="content-container flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-brand-ink/80 text-center md:text-left">
           <p>
             © 2026 Наталія Кондратенко. 
             <span className="hidden sm:inline"> - </span>

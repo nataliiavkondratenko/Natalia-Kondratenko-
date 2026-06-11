@@ -143,7 +143,7 @@ export default function Approach({ onOpenContact }: ApproachProps) {
                 <div className="relative z-10 space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-brand-peach rounded-full animate-pulse" />
-                    <span className="text-[10px] uppercase tracking-widest font-bold text-brand-ink/50">Для кого це</span>
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-brand-ink/75">Для кого це</span>
                   </div>
                   <p className="text-lg md:text-xl leading-relaxed opacity-90 italic font-medium">
                     Цей формат підходить, якщо ви вагаєтесь, чи варто починати терапію, але хочете розібратися з тим, що відбувається, і дати собі можливість спробувати.
@@ -169,7 +169,7 @@ export default function Approach({ onOpenContact }: ApproachProps) {
           className="flex whitespace-nowrap"
         >
           {[...Array(20)].map((_, i) => (
-            <span key={i} className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-muted/40 flex items-center gap-8 px-4">
+            <span key={i} className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-muted/70 flex items-center gap-8 px-4">
               психоаналітичний підхід <span className="w-1.5 h-1.5 rounded-full bg-brand-peach/40 shrink-0" />
               професійна етика <span className="w-1.5 h-1.5 rounded-full bg-brand-peach/40 shrink-0" />
               конфіденційність <span className="w-1.5 h-1.5 rounded-full bg-brand-peach/40 shrink-0" />
@@ -200,10 +200,10 @@ export default function Approach({ onOpenContact }: ApproachProps) {
               className="space-y-20 md:space-y-28"
             >
               <div className="space-y-6 md:space-y-8">
-                <h3 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-white uppercase leading-[1.1] md:leading-[0.95] tracking-tight">
+                <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-white uppercase leading-[1.1] md:leading-[0.95] tracking-tight">
                   Щоб не ускладнювати <br className="hidden md:block" /> те, що і так складно
-                </h3>
-                <p className="text-lg md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+                </h2>
+                <p className="text-lg md:text-2xl text-white/95 max-w-3xl mx-auto leading-relaxed">
                   Я приділяю увагу не тільки самій роботі, а й тому, щоб вона була організована передбачувано і надійно.
                 </p>
               </div>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -6,26 +7,45 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenContact }: HeroProps) {
+  const [loadVideo, setLoadVideo] = useState(false);
+
+  useEffect(() => {
+    // Wait until after the initial mount so the critical metrics (FCP/LCP) are recorded before loading the video
+    const timer = setTimeout(() => {
+      setLoadVideo(true);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative min-h-[100svh] w-full overflow-hidden bg-brand-dark flex items-end pt-24 pb-8 md:pb-12">
       {/* Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover opacity-60"
-      >
-        <source 
-          src="https://res.cloudinary.com/dset5uqua/video/upload/v1776692549/%D0%9D%D0%B0%D1%82%D0%B0%D1%88%D0%B0_%D0%B2%D0%BE%D0%B7%D0%BB%D0%B5_%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0_ywihpy.mp4" 
-          type="video/mp4" 
-        />
-        <source 
-          src="https://res.cloudinary.com/dset5uqua/video/upload/v1776692549/%D0%9D%D0%B0%D1%82%D0%B0%D1%88%D0%B0_%D0%B2%D0%BE%D0%B7%D0%BB%D0%B5_%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0_ywihpy.webm" 
-          type="video/webm" 
-        />
-      </video>
+      {loadVideo && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
+        >
+          <source 
+            src="https://res.cloudinary.com/dset5uqua/video/upload/v1776692549/%D0%9D%D0%B0%D1%82%D0%B0%D1%88%D0%B0_%D0%B2%D0%BE%D0%B7%D0%BB%D0%B5_%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0_ywihpy.mp4" 
+            type="video/mp4" 
+          />
+          <source 
+            src="https://res.cloudinary.com/dset5uqua/video/upload/v1776692549/%D0%9D%D0%B0%D1%82%D0%B0%D1%88%D0%B0_%D0%B2%D0%BE%D0%B7%D0%BB%D0%B5_%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0_ywihpy.webm" 
+            type="video/webm" 
+          />
+          <track 
+            kind="captions" 
+            src="" 
+            srcLang="uk" 
+            label="Супровідний напис для відео фону (без звуку)" 
+            default 
+          />
+        </video>
+      )}
       
       {/* Overlay for Contrast */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
@@ -51,7 +71,7 @@ export default function Hero({ onOpenContact }: HeroProps) {
                 className="max-w-2xl space-y-8 md:space-y-12"
               >
                 <div className="space-y-2">
-                  <p className="text-white/90 text-lg md:text-2xl font-normal leading-tight italic">
+                  <p className="text-white text-lg md:text-2xl font-normal leading-tight italic">
                     Інтелект не рятує. <br />
                     Контроль більше не дає результату.
                   </p>
@@ -60,7 +80,7 @@ export default function Hero({ onOpenContact }: HeroProps) {
                   </p>
                 </div>
 
-                <p className="text-white/80 text-base md:text-xl font-normal leading-snug max-w-xl">
+                <p className="text-white/95 text-base md:text-xl font-normal leading-snug max-w-xl">
                   Індивідуальна психотерапія та консультації <br className="hidden md:block" /> 
                   у психоаналітичному підході
                 </p>
@@ -104,7 +124,7 @@ export default function Hero({ onOpenContact }: HeroProps) {
           className="flex whitespace-nowrap"
         >
           {[...Array(20)].map((_, i) => (
-            <span key={i} className="text-[10px] md:text-[12px] uppercase tracking-[0.4em] font-bold text-white/50 flex items-center gap-8 px-4">
+            <span key={i} className="text-[10px] md:text-[12px] uppercase tracking-[0.4em] font-bold text-white/75 flex items-center gap-8 px-4">
               психоаналітичний підхід <span className="w-1.5 h-1.5 rounded-full bg-white/20 shrink-0" />
               професійна етика <span className="w-1.5 h-1.5 rounded-full bg-white/20 shrink-0" />
               конфіденційність <span className="w-1.5 h-1.5 rounded-full bg-white/20 shrink-0" />

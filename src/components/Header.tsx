@@ -46,8 +46,8 @@ export default function Header({ onOpenContact }: HeaderProps) {
         </div>
 
         {/* Central Info Label - Absolutely centered relative to the container */}
-        <div className={`absolute left-1/2 -translate-x-1/2 hidden md:flex lg:hidden xl:flex transition-colors duration-300 ${isScrolled ? 'text-brand-ink' : 'text-white'}`}>
-          <span className="text-[8px] lg:text-[9px] font-bold uppercase tracking-[0.15em] opacity-60 text-center whitespace-nowrap max-w-[200px] lg:max-w-none overflow-hidden text-ellipsis">
+        <div className={`absolute left-1/2 -translate-x-1/2 hidden md:flex lg:hidden xl:flex transition-colors duration-300 ${isScrolled ? 'text-brand-ink/85' : 'text-white/95'}`}>
+          <span className="text-[8px] lg:text-[9px] font-bold uppercase tracking-[0.15em] text-center whitespace-nowrap max-w-[200px] lg:max-w-none overflow-hidden text-ellipsis">
             Клінічний психолог • психотерапевт
           </span>
         </div>
@@ -60,7 +60,7 @@ export default function Header({ onOpenContact }: HeaderProps) {
                 key={link.name}
                 href={link.href}
                 className={`text-[10px] font-bold uppercase tracking-widest transition-colors duration-300 hover:opacity-100 ${
-                  isScrolled ? 'text-black opacity-60' : 'text-white opacity-80'
+                  isScrolled ? 'text-brand-ink/90 hover:text-brand-ink' : 'text-white/95 hover:text-white'
                 }`}
               >
                 {link.name}
@@ -74,7 +74,10 @@ export default function Header({ onOpenContact }: HeaderProps) {
           <button 
             className={`p-2 transition-colors duration-300 ${isScrolled ? 'text-black' : 'text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Закрити меню" : "Відкрити меню"}
+            id="mobile-menu-toggle"
           >
+            <span className="sr-only">{isMobileMenuOpen ? "Закрити меню навігації" : "Відкрити меню навігації"}</span>
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -91,7 +94,13 @@ export default function Header({ onOpenContact }: HeaderProps) {
             className="fixed inset-0 h-[100dvh] w-full bg-white z-[300] lg:hidden flex flex-col p-8 overflow-y-auto"
           >
             <div className="flex justify-end mb-6">
-               <button onClick={() => setIsMobileMenuOpen(false)} className="p-4 text-brand-ink">
+               <button 
+                 onClick={() => setIsMobileMenuOpen(false)} 
+                 className="p-4 text-brand-ink"
+                 aria-label="Закрити меню"
+                 id="mobile-menu-close"
+               >
+                  <span className="sr-only">Закрити меню</span>
                   <X size={36} />
                </button>
             </div>
