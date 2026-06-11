@@ -58,10 +58,33 @@ export default function ContactModal({ isOpen, onClose, mode = 'all' }: ContactM
       console.error('Failed to save inquiry to local backup', err);
     }
 
-    // Directly open custom mailto link to email client prefilled with form data
-    setTimeout(() => {
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/nataliia.v.kondratenko@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          "Ім'я": name,
+          "Контактні дані": contact,
+          "Повідомлення": message || "Без повідомлення (запит зв'язку)",
+          "_subject": `Новий запит на консультацію від ${name}`,
+          "_replyto": contact.includes('@') ? contact : undefined,
+          "_template": "table"
+        })
+      });
+
+      if (response.ok) {
+        setIsSubmitting(false);
+        setIsSuccess(true);
+      } else {
+        throw new Error("Response was not ok");
+      }
+    } catch (err) {
+      console.error('Failed to submit via FormSubmit, falling back to mailto', err);
       triggerMailtoFallback();
-    }, 400);
+    }
   };
 
   const triggerMailtoFallback = () => {
