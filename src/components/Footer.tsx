@@ -44,23 +44,23 @@ export default function Footer({ onOpenContact }: FooterProps) {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
               onClick={() => onOpenContact('email')}
-              className="bg-card-blue p-6 sm:p-8 md:p-6 lg:p-8 xl:p-12 rounded-[30px] md:rounded-[40px] flex flex-col justify-between h-[300px] sm:h-[340px] md:h-[360px] lg:h-[520px] group cursor-pointer shadow-sm border border-black/[0.02]"
+              className="bg-card-blue p-6 sm:p-8 md:p-6 lg:p-8 xl:p-12 rounded-[30px] md:rounded-[40px] flex flex-col justify-between h-[320px] sm:h-[340px] md:h-[360px] lg:h-[520px] group cursor-pointer shadow-sm border border-black/[0.02]"
             >
               <div>
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-md mb-4 sm:mb-6 md:mb-8">
                   <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-[#3E5C7A]" />
                 </div>
-                <h3 className="text-lg sm:text-2xl md:text-[1.15rem] lg:text-[1.25rem] xl:text-[1.65rem] font-sans font-medium text-brand-ink mb-2 sm:mb-4 md:mb-6 leading-tight h-auto sm:h-auto md:h-[72px] lg:h-[96px] xl:h-[110px] flex items-start">
+                <h3 className="text-[21px] sm:text-2xl md:text-[1.15rem] lg:text-[1.25rem] xl:text-[1.65rem] font-sans font-medium text-brand-ink mb-2 sm:mb-4 md:mb-6 leading-tight h-auto sm:h-auto md:h-[72px] lg:h-[96px] xl:h-[110px] flex items-start">
                   <span>Обговорити <br className="hidden md:block lg:hidden xl:block" /> свій запит</span>
                 </h3>
-                <p className="text-brand-muted text-xs sm:text-sm md:text-xs lg:text-sm xl:text-base leading-relaxed max-w-[280px]">
+                <p className="text-brand-muted text-[14px] sm:text-sm md:text-xs lg:text-sm xl:text-base leading-relaxed max-w-[280px]">
                   Напишіть мені, щоб ми могли підібрати зручний час для знайомства.
                 </p>
               </div>
               
               <button 
                 onClick={(e) => { e.stopPropagation(); onOpenContact('email'); }}
-                className="bg-brand-ink text-white w-full py-3 sm:py-4 rounded-full text-xs sm:text-sm font-medium flex items-center justify-center hover:bg-black transition-colors mt-4 sm:mt-auto px-4 md:px-2 lg:px-4"
+                className="bg-brand-ink text-white w-full py-3.5 sm:py-4 rounded-full text-sm sm:text-sm font-medium flex items-center justify-center hover:bg-black transition-colors mt-4 sm:mt-auto px-4 md:px-2 lg:px-4"
               >
                  <span>Відправити email</span>
                  <ArrowUpRight className="ml-1.5 md:ml-1 w-4 h-4 flex-shrink-0" />
@@ -74,23 +74,23 @@ export default function Footer({ onOpenContact }: FooterProps) {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
               onClick={() => onOpenContact('messenger')}
-              className="bg-white border border-black/5 p-6 sm:p-8 md:p-6 lg:p-8 xl:p-12 rounded-[30px] md:rounded-[40px] flex flex-col justify-between h-[300px] sm:h-[340px] md:h-[360px] lg:h-[520px] group cursor-pointer shadow-sm"
+              className="bg-white border border-black/5 p-6 sm:p-8 md:p-6 lg:p-8 xl:p-12 rounded-[30px] md:rounded-[40px] flex flex-col justify-between h-[320px] sm:h-[340px] md:h-[360px] lg:h-[520px] group cursor-pointer shadow-sm"
             >
               <div>
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#F8F6F3] rounded-full flex items-center justify-center shadow-sm mb-4 sm:mb-6 md:mb-8">
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#8C7662]" />
                 </div>
-                <h3 className="text-lg sm:text-2xl md:text-[1.15rem] lg:text-[1.25rem] xl:text-[1.65rem] font-sans font-medium text-brand-ink mb-2 sm:mb-4 md:mb-6 leading-tight h-auto sm:h-auto md:h-[72px] lg:h-[96px] xl:h-[110px] flex items-start">
+                <h3 className="text-[21px] sm:text-2xl md:text-[1.15rem] lg:text-[1.25rem] xl:text-[1.65rem] font-sans font-medium text-brand-ink mb-2 sm:mb-4 md:mb-6 leading-tight h-auto sm:h-auto md:h-[72px] lg:h-[96px] xl:h-[110px] flex items-start">
                   <span>Написати в <br className="hidden sm:block" /> WhatsApp / Telegram</span>
                 </h3>
-                <p className="text-brand-muted text-xs sm:text-sm md:text-xs lg:text-sm xl:text-base leading-relaxed max-w-[280px]">
+                <p className="text-brand-muted text-[14px] sm:text-sm md:text-xs lg:text-sm xl:text-base leading-relaxed max-w-[280px]">
                   Швидкий спосіб отримати відповідь у зручному для вас месенджері.
                 </p>
               </div>
 
               <button
                 onClick={(e) => { e.stopPropagation(); onOpenContact('messenger'); }}
-                className="bg-brand-ink text-white w-full py-3 sm:py-4 rounded-full text-xs sm:text-sm font-medium flex items-center justify-center hover:bg-black transition-colors mt-4 sm:mt-auto px-4 md:px-2 lg:px-4"
+                className="bg-brand-ink text-white w-full py-3.5 sm:py-4 rounded-full text-sm sm:text-sm font-medium flex items-center justify-center hover:bg-black transition-colors mt-4 sm:mt-auto px-4 md:px-2 lg:px-4"
               >
                 <span>Написати зараз</span>
                 <ArrowUpRight className="ml-1.5 md:ml-1 w-4 h-4 flex-shrink-0" />
