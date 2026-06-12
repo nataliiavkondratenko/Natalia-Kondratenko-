@@ -7,28 +7,22 @@ interface HeroProps {
 }
 
 export default function Hero({ onOpenContact }: HeroProps) {
-  const [loadVideo, setLoadVideo] = useState(false);
-
-  useEffect(() => {
-    // Wait until after the initial mount so the critical metrics (FCP/LCP) are recorded before loading the video
-    const timer = setTimeout(() => {
-      setLoadVideo(true);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   return (
     <section className="relative min-h-[100svh] w-full overflow-hidden bg-brand-dark flex items-end pt-24 pb-8 md:pb-12">
       {/* Background Video */}
-      {loadVideo && (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
-        >
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        onLoadedData={() => setVideoLoaded(true)}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-out ${
+          videoLoaded ? 'opacity-60' : 'opacity-0'
+        }`}
+      >
           <source 
             src="https://res.cloudinary.com/dset5uqua/video/upload/v1776692549/%D0%9D%D0%B0%D1%82%D0%B0%D1%88%D0%B0_%D0%B2%D0%BE%D0%B7%D0%BB%D0%B5_%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD%D0%B0_ywihpy.mp4" 
             type="video/mp4" 
@@ -39,13 +33,12 @@ export default function Hero({ onOpenContact }: HeroProps) {
           />
           <track 
             kind="captions" 
-            src="" 
+            src="data:text/vtt,WEBVTT" 
             srcLang="uk" 
             label="Супровідний напис для відео фону (без звуку)" 
             default 
           />
         </video>
-      )}
       
       {/* Overlay for Contrast */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />

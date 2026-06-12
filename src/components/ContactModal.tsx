@@ -59,7 +59,7 @@ export default function ContactModal({ isOpen, onClose, mode = 'all' }: ContactM
     }
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/nataliia.v.kondratenko@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/d5f577f45471ff7d32adb7ff00013c06", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -228,7 +228,7 @@ ${message || '—'}
 
                   {/* Form */}
                   {mode !== 'messenger' && (
-                    <form className="space-y-3" onSubmit={handleSubmit}>
+                    <form action="https://formsubmit.co/d5f577f45471ff7d32adb7ff00013c06" method="POST" className="space-y-3" onSubmit={handleSubmit}>
                       <div className="space-y-3">
                         <input 
                           type="text" 
