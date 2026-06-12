@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="100%" height="100%">
+  <defs>
+    <!-- Subtle drop shadow to ensure visibility on bright or white browser tabs -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.12" />
+    </filter>
+  </defs>
+  
+  <!-- Symmetrical white rotated square with rounded corners forming the diamond -->
+  <rect x="52" y="52" width="152" height="152" rx="42" fill="#FFFFFF" transform="rotate(45 128 128)" filter="url(#shadow)" />
+  
+  <!-- Symmetrical pointer pointing to the top-right corner, aligned with the brand design -->
+  <path d="M185 71 L102 108 L122 134 L148 154 Z" fill="#111111" />
+</svg>
