@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, MessageCircle, Send, Check, Loader2 } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ isOpen, onClose, mode = 'all' }: ContactModalProps) {
+  const { t } = useLanguage();
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
   const [message, setMessage] = useState('');
@@ -33,11 +35,11 @@ export default function ContactModal({ isOpen, onClose, mode = 'all' }: ContactM
     setError('');
 
     if (!name.trim()) {
-      setError("Будь ласка, вкажіть ваше ім'я");
+      setError(t.modal.errorName);
       return;
     }
     if (!contact.trim()) {
-      setError("Будь ласка, вкажіть телефон або email");
+      setError(t.modal.errorContact);
       return;
     }
 
@@ -66,10 +68,10 @@ export default function ContactModal({ isOpen, onClose, mode = 'all' }: ContactM
           "Accept": "application/json"
         },
         body: JSON.stringify({
-          "Ім'я": name,
-          "Контактні дані": contact,
-          "Повідомлення": message || "Без повідомлення (запит зв'язку)",
-          "_subject": `Новий запит на консультацію від ${name}`,
+          "Name": name,
+          "Contact": contact,
+          "Message": message || "No message provided",
+          "_subject": `New consultation request from ${name}`,
           "_replyto": contact.includes('@') ? contact : undefined,
           "_template": "table"
         })
@@ -88,13 +90,11 @@ export default function ContactModal({ isOpen, onClose, mode = 'all' }: ContactM
   };
 
   const triggerMailtoFallback = () => {
-    const emailSubject = `Запит на консультацію: ${name}`;
-    const emailBody = `Вітаю!
+    const emailSubject = `Request from ${name}`;
+    const emailBody = `Name: ${name}
+Contact: ${contact}
 
-Мене звати: ${name}
-Контактний телефон / email: ${contact}
-
-Запит:
+Message:
 ${message || '—'}
 `;
 
@@ -137,14 +137,14 @@ ${message || '—'}
               <button 
                 onClick={onClose}
                 className="p-2 text-brand-ink/30 hover:text-brand-ink transition-colors hover:bg-black/5 rounded-full"
-                aria-label="Закрити модальне вікно"
+                aria-label={t.modal.closeAria}
               >
-                <span className="sr-only">Закрити модальне вікно</span>
+                <span className="sr-only">{t.modal.closeAria}</span>
                 <X size={24} />
               </button>
             </div>
 
-            <div className="px-8 md:px-12 pb-10 overflow-y-auto custom-scrollbar">
+            <div className="px-5 sm:px-8 md:px-12 pb-8 sm:pb-10 overflow-y-auto custom-scrollbar">
               {isSuccess ? (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.95 }}
@@ -155,16 +155,18 @@ ${message || '—'}
                     <Check size={32} />
                   </div>
                   <div className="space-y-3">
-                    <h2 className="text-2xl font-sans font-medium text-brand-ink">Надіслано успішно!</h2>
+                    <h2 className="text-2xl font-sans font-medium text-brand-ink">
+                      {t.modal.successTitle}
+                    </h2>
                     <p className="text-sm text-brand-muted leading-relaxed max-w-md mx-auto px-2">
-                      Дякую за звернення! Ваше повідомлення прийнято. Я отримаю його на адресу <span className="font-semibold text-brand-ink">nataliia.v.kondratenko@gmail.com</span> та зв'яжуся з вами найближчим часом для узгодження часу зустрічі.
+                      {t.modal.successDescription}
                     </p>
                   </div>
                   <button 
                     onClick={onClose}
                     className="mt-6 px-8 py-3.5 bg-brand-ink text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-black transition-colors shadow-lg active:scale-[0.98] cursor-pointer"
                   >
-                    Зрозуміло
+                    {t.modal.successButton}
                   </button>
                 </motion.div>
               ) : (
@@ -173,11 +175,11 @@ ${message || '—'}
                   <div className="text-center mb-6 md:mb-8">
                     <h2 className="text-xl md:text-2xl lg:text-3xl font-sans font-medium text-brand-ink leading-tight px-4">
                       {mode === 'email' ? (
-                        <>Надіслати запит <br className="hidden sm:block" /> на email</>
+                        t.modal.emailTitle
                       ) : mode === 'messenger' ? (
-                        <>Написати в <br className="hidden sm:block" /> WhatsApp / Telegram</>
+                        t.modal.messengerTitle
                       ) : (
-                        <>Оберіть зручний <br className="hidden sm:block" /> спосіб зв'язку</>
+                        t.modal.allTitle
                       )}
                     </h2>
                   </div>
@@ -221,7 +223,9 @@ ${message || '—'}
                   {mode === 'all' && (
                     <div className="flex items-center gap-4 mb-6 md:mb-8">
                       <div className="h-[1px] flex-grow bg-brand-ink/10" />
-                      <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-ink/20 shrink-0">АБО</span>
+                      <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-brand-ink/20 shrink-0">
+                        {t.modal.or}
+                      </span>
                       <div className="h-[1px] flex-grow bg-[#EAE8E4]" />
                     </div>
                   )}
@@ -234,8 +238,8 @@ ${message || '—'}
                           type="text" 
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          placeholder="Ваше ім'я"
-                          aria-label="Ваше ім'я"
+                          placeholder={t.modal.namePlaceholder}
+                          aria-label={t.modal.namePlaceholder}
                           className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all text-sm"
                           id="form-name"
                           disabled={isSubmitting}
@@ -244,8 +248,8 @@ ${message || '—'}
                           type="text" 
                           value={contact}
                           onChange={(e) => setContact(e.target.value)}
-                          placeholder="Телефон або email"
-                          aria-label="Телефон або email"
+                          placeholder={t.modal.contactPlaceholder}
+                          aria-label={t.modal.contactPlaceholder}
                           className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all text-sm"
                           id="form-contact"
                           disabled={isSubmitting}
@@ -253,8 +257,8 @@ ${message || '—'}
                         <textarea 
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
-                          placeholder="Коротко про запит"
-                          aria-label="Коротко про запит"
+                          placeholder={t.modal.messagePlaceholder}
+                          aria-label={t.modal.messagePlaceholder}
                           rows={3}
                           className="w-full px-6 py-4 rounded-2xl bg-[#F8F6F3] border border-transparent focus:bg-white focus:border-brand-ink/10 focus:ring-4 focus:ring-brand-ink/[0.02] text-brand-ink placeholder:text-brand-muted/50 transition-all resize-none text-sm"
                           id="form-message"
@@ -275,10 +279,10 @@ ${message || '—'}
                         {isSubmitting ? (
                           <>
                             <Loader2 className="animate-spin mr-2 w-4 h-4" />
-                            Надсилання...
+                            {t.modal.submitting}
                           </>
                         ) : (
-                          mode === 'email' ? 'Відправити email' : 'Відправити'
+                          mode === 'email' ? t.modal.submitEmail : t.modal.submitGeneral
                         )}
                       </button>
                     </form>
@@ -292,3 +296,4 @@ ${message || '—'}
     </AnimatePresence>
   );
 }
+

@@ -7,6 +7,7 @@ import Approach from './components/Approach';
 import Details from './components/Details';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
+import { LanguageProvider } from './LanguageContext';
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,16 +24,19 @@ export default function App() {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="min-h-screen">
-      <Header onOpenContact={openModal} />
-      <Hero onOpenContact={openModal} />
-      <AboutMe onOpenContact={openModal} />
-      <Areas />
-      <Approach onOpenContact={openModal} />
-      <Details />
-      <Footer onOpenContact={openModal} />
-      
-      <ContactModal isOpen={isModalOpen} onClose={closeModal} mode={modalMode} />
-    </div>
+    <LanguageProvider>
+      <div className="min-h-screen">
+        <Header onOpenContact={openModal} />
+        <Hero onOpenContact={openModal} />
+        <AboutMe />
+        <Areas />
+        <Approach onOpenContact={openModal} />
+        <Details />
+        <Footer onOpenContact={openModal} />
+        
+        <ContactModal isOpen={isModalOpen} onClose={closeModal} mode={modalMode} />
+      </div>
+    </LanguageProvider>
   );
 }
+
