@@ -84,17 +84,14 @@ export default function Details() {
                     {/* Folder Body */}
                     <div className={`
                       flex-grow relative ${style.color} p-5 sm:p-6 md:p-5 lg:p-6 xl:p-10
-                      min-h-[180px] sm:min-h-[220px] md:min-h-[220px] lg:min-h-[240px] xl:min-h-[300px]
+                      min-h-[160px] sm:min-h-[190px] md:min-h-[200px] lg:min-h-[220px] xl:min-h-[260px]
                       rounded-tr-2xl rounded-b-2xl md:rounded-tr-3xl md:rounded-b-3xl
                       border border-black/[0.05]
                       shadow-[0_20px_50px_rgba(0,0,0,0.08)]
                       hover:-translate-y-2 transition-all duration-500
                       z-10
                     `}>
-                      <div className="flex flex-col gap-4 sm:gap-6 md:gap-5 lg:gap-8 h-full">
-                        <div className="flex-shrink-0">
-                           <span className="text-lg sm:text-xl md:text-lg lg:text-xl xl:text-3xl font-mono text-black/5 font-bold">[{style.id}]</span>
-                        </div>
+                      <div className="flex flex-col h-full justify-start">
                         <p className="text-base sm:text-lg md:text-[13px] lg:text-base xl:text-lg font-normal leading-relaxed text-brand-ink tracking-tight flex-grow break-words">
                           {point.text}
                         </p>
